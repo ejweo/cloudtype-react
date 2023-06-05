@@ -30,8 +30,8 @@ jobs:
               nodeversion: 14
               spa: true
               buildenv:
-                - name: REACT_APP_WAITLIST_API_URL
-                  value: https://port-0-cloudtype-spring-boot-7e6o2clhxepilm.sel4.cloudtype.app/api/guests
+                - name: REACT_APP_API_URL
+                  value: https://port-0-cloudtype-spring-boot-7e6o2clhxepilm.sel4.cloudtype.app
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
