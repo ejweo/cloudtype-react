@@ -27,7 +27,7 @@ jobs:
 
             options:
               docbase: /build
-              nodeversion: 14
+              nodeversion: 16
               spa: true
               buildenv:
                 - name: REACT_APP_API_URL
