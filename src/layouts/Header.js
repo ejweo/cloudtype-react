@@ -5,37 +5,35 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavbarBrand,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Dropdown,
+  //Dropdown,
   Button,
 } from "reactstrap";
-import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
-import user1 from "../assets/images/users/user1.jpg";
+//import user1 from "../assets/images/users/user1.jpg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
+  const [sideOpen, setSideOpen] = React.useState(true);
+  //const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  //const toggle = () => setDropdownOpen((prevState) => !prevState);
   const Handletoggle = () => {
     setIsOpen(!isOpen);
   };
   const showMobilemenu = () => {
-    document.getElementById("sidebarArea").classList.toggle("showSidebar");
+    setSideOpen(!sideOpen);
+
+    document.getElementById("sidebarArea").style.display = sideOpen ? 'none' : 'block';
   };
   return (
     <Navbar color="dark" dark expand="md">
       <div className="d-flex align-items-center">
-        <NavbarBrand href="/" className="d-lg-none">
-          <LogoWhite />
-        </NavbarBrand>
         <Button
           color="dark"
-          className="d-lg-none"
+          className = "d-lg-block"
           onClick={() => showMobilemenu()}
         >
           <i className="bi bi-list"></i>
@@ -63,11 +61,7 @@ const Header = () => {
               Starter
             </Link>
           </NavItem>
-          <NavItem>
-            <Link to="/about" className="nav-link">
-              About
-            </Link>
-          </NavItem>
+          
           <UncontrolledDropdown inNavbar nav>
             <DropdownToggle caret nav>
               DD Menu
@@ -80,7 +74,7 @@ const Header = () => {
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
-        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+        {/* <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="dark">
             <img
               src={user1}
@@ -98,7 +92,7 @@ const Header = () => {
             <DropdownItem>Inbox</DropdownItem>
             <DropdownItem>Logout</DropdownItem>
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
       </Collapse>
     </Navbar>
   );

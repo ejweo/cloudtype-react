@@ -1,4 +1,4 @@
-import { Button, Nav, NavItem } from "reactstrap";
+import { Nav, NavItem } from "reactstrap";
 import Logo from "./Logo";
 import { Link, useLocation } from "react-router-dom";
 
@@ -47,30 +47,16 @@ const navigation = [
     title: "Breadcrumbs",
     href: "/breadcrumbs",
     icon: "bi bi-link",
-  },
-  {
-    title: "About",
-    href: "/about",
-    icon: "bi bi-people",
-  },
+  }
 ];
 
 const Sidebar = () => {
-  const showMobilemenu = () => {
-    document.getElementById("sidebarArea").classList.toggle("sidebarArea");
-  };
   let location = useLocation();
 
   return (
     <div className="p-3">
       <div className="d-flex align-items-center">
         <Logo />
-        <Button
-          close
-          size="sm"
-          className="ms-auto d-lg-none"
-          onClick={() => showMobilemenu()}
-        ></Button>
       </div>
       <div className="pt-4 mt-2">
         <Nav vertical className="sidebarNav">
