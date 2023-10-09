@@ -1,58 +1,92 @@
-import { Nav, NavItem } from "reactstrap";
+import { Nav } from "reactstrap";
 import Logo from "./Logo";
-import { Link, useLocation } from "react-router-dom";
+import SidebarItem from "./SidebarItem";
 
 const navigation = [
   {
+    title: "기술경력",
+    icon: "bi bi-card-text",
+    childrens: [
+      {title : "경력조회", href : "/careerskills"},
+      {title : "경력등록", href : "/careersave"}
+    ],
+    type : "A"
+  },
+  {
     title: "Dashboard",
-    href: "/starter",
     icon: "bi bi-speedometer2",
+    childrens: [
+      {title : "Dashboard", href : "/starter"}
+    ],
+    type : "B"
   },
   {
     title: "Alert",
-    href: "/alerts",
     icon: "bi bi-bell",
+    childrens: [
+      {title : "Alert", href : "/alerts"}
+    ],
+    type : "C"
   },
   {
     title: "Badges",
-    href: "/badges",
     icon: "bi bi-patch-check",
+    childrens: [
+      {title : "Badges", href : "/badges"}
+    ],
+    type : "D"
   },
   {
     title: "Buttons",
-    href: "/buttons",
     icon: "bi bi-hdd-stack",
+    childrens: [
+      {title : "Buttons", href : "/buttons"}
+    ],
+    type : "E"
   },
   {
     title: "Cards",
-    href: "/cards",
     icon: "bi bi-card-text",
+    childrens: [
+      {title : "Cards", href : "/cards"}
+    ],
+    type : "F"
   },
   {
     title: "Grid",
-    href: "/grid",
     icon: "bi bi-columns",
+    childrens: [
+      {title : "Grid", href : "/grid"}
+    ],
+    type : "G"
   },
   {
     title: "Table",
-    href: "/table",
     icon: "bi bi-layout-split",
+    childrens: [
+      {title : "Table", href : "/table"}
+    ],
+    type : "H"
   },
   {
     title: "Forms",
-    href: "/forms",
     icon: "bi bi-textarea-resize",
+    childrens: [
+      {title : "Forms", href : "/forms"}
+    ],
+    type : "I"
   },
   {
     title: "Breadcrumbs",
-    href: "/breadcrumbs",
     icon: "bi bi-link",
+    childrens: [
+      {title : "Breadcrumbs", href : "/breadcrumbs"}
+    ],
+    type : "J"
   }
 ];
 
 const Sidebar = () => {
-  let location = useLocation();
-
   return (
     <div className="p-3">
       <div className="d-flex align-items-center">
@@ -61,19 +95,7 @@ const Sidebar = () => {
       <div className="pt-4 mt-2">
         <Nav vertical className="sidebarNav">
           {navigation.map((navi, index) => (
-            <NavItem key={index} className="sidenav-bg">
-              <Link
-                to={navi.href}
-                className={
-                  location.pathname === navi.href
-                    ? "text-primary nav-link py-3"
-                    : "nav-link text-secondary py-3"
-                }
-              >
-                <i className={navi.icon}></i>
-                <span className="ms-3 d-inline-block">{navi.title}</span>
-              </Link>
-            </NavItem>
+            <SidebarItem item={navi} key={index}/>
           ))}
         </Nav>
       </div>

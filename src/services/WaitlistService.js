@@ -2,6 +2,9 @@ import axios from "axios";
 
 class WaitlistService{
 
+    //local 개발시
+    //https://port-0-cloudtype-spring-boot-7e6o2clhxepilm.sel4.cloudtype.app
+
     getAllGuests() {
         return axios.get(process.env.REACT_APP_API_URL + "/api/guests")
     }
