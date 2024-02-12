@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from "react";
 import {
   Card,
   CardImg,
@@ -11,6 +12,7 @@ import {
   Col,
 } from "reactstrap";
 import Blog from "../../components/dashboard/Blog";
+import WaitlistService from "../../services/WaitlistService";
 import bg1 from "../../assets/images/bg/bg1.jpg";
 import bg2 from "../../assets/images/bg/bg2.jpg";
 import bg3 from "../../assets/images/bg/bg3.jpg";
@@ -52,6 +54,23 @@ const BlogData = [
 ];
 
 const Cards = () => {
+  const [guests, setGuests] = useState([])
+
+  useEffect(() => {
+    getAllGuests();
+  }, [])
+
+  const getAllGuests = () =>{
+    WaitlistService.getAllGuests()
+    .then((response) => {
+      setGuests(response.data);
+      console.log(response.data);
+    })
+    .catch(error =>{
+      console.log(error);
+    })
+  }
+    
   return (
     <div>
       {/* --------------------------------------------------------------------------------*/}
